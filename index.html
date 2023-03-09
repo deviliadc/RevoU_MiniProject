@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Travel Agent | TravelKu</title>
+    <link rel="shortcut icon" type="image" href="assets/logo.png">
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+    <!--header-->
+    <header>
+        <navbar class="container">
+            <div class="navbar">
+                <img class="logo" src="assets/logo.png" alt="logo"/>
+                <div class="menu">
+                    <a class="menu-item" href="#hero">Home</a>
+                    <a class="menu-item" href="#package">Our Package</a>
+                    <a class="menu-item" href="#call-us">Call Us</a>
+                </div>
+            </div>
+        </navbar>
+    </header>
+    <!--main-->
+    <main>
+        <!--hero-->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-title">
+                    <h1>Your Trusted Travel Agent's</h1>
+                    <p>Your Happinesse is Our Happinesse</p>
+                </div>
+            </div>
+        </section>
+        <!--about-->
+        <section id="about-contact">
+            <div class="container">
+                <div class="about-contact">
+                    <div class="about">
+                        <!--slideshow-->
+                        <div class="slideshow" id="slideshow">
+                            <img class="slideshow-img" src="assets/bali.jpg" alt="">
+                            <img class="slideshow-img" src="assets/bromo.jpg" alt="">
+                            <img class="slideshow-img" src="assets/karimunjawa.jpg" alt="">
+                            <img class="slideshow-img" src="assets/labuanbajo.jpg" alt="">
+                        </div>
+
+                        <script>
+                            var slideIndex = 1;
+                            showDivs(slideIndex);
+
+                            function plusDivs(n) {
+                                showDivs((slideIndex += n));
+                            }
+
+                            function showDivs(n) {
+                                var i;
+                                var imgList = document.getElementsByClassName("slideshow-img");
+                                if (n > imgList.length) slideIndex = 1;
+                                else if (n < 1) slideIndex = imgList.length; 
+                                //untuk menampilkan salah satu img
+                                for(i = 0; i < imgList.length; i ++) {
+                                    imgList[i].style.display = "none";
+                                }
+                                // 1 2 3
+                                // 0 1 2
+                                imgList[slideIndex - 1].style.display = "block";
+                            }
+                            /* Ini untuk auto slide*/
+                            setInterval(() => {
+                                plusDivs(1);
+                            }, 2000);
+                        </script>
+                        <!--review pengalaman-->
+                        <div class="about-content">
+                            <div class="content-caption">
+                                <p>
+                                    "Liburan menggunakan TravelKu menyenangkan dan sangat berkesan,<br>
+                                    aku tidak akan melupakan liburanku kali ini."
+                                </p>
+                            </div>
+                            <div class="content-person">
+                                <img src="assets/minji.jpg" alt="" width="50px" height="50px">
+                                <div class="person-info">
+                                    <h6>Kim Minji</h6>
+                                    <p>Idol, 18</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border"/>
+                        <!--benefit-->
+                        <div class="about-information">
+                            <h6 class="information-title">
+                                Kamu bisa mendapatkan berbagai macam keuntungan jika travel bersama TravelKu.
+                                TravelKu merupakan travel yang terpercaya selama beberapa tahun terakhir.
+                                Liburan bersama TravelKu tidak akan membuatmu menyesal. Berikut hal yang bisa
+                                kamu dapatkan ketika memilih TravelKu sebagai agen travel untuk liburanmu:
+                            </h6>
+                            <ul class="information-list">
+                                <li>
+                                    <div class="list-number">1</div>
+                                    <div class="list-paragraph">
+                                        <p>Biaya penginapan dan tiket pesawat murah</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-number">2</div>
+                                    <div class="list-paragraph">
+                                        <p>Mendapat rekomendasi tempat wisata yang terbaik</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-number">3</div>
+                                    <div class="list-paragraph">
+                                        <p>Mendapatkan merchandise dari TravelKu</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--contact us-->
+                    <div class="contact">
+                        <div class="contact-card">
+                            <!--hero card-->
+                            <div class="card-title">
+                                <h4>Contact Us</h4>
+                                <p>Sales akan menghubungi anda secepatnya dalam 
+                                    kurun waktu 1x24 jam setelah anda mengisi form.
+                                </p>
+                            </div>
+                            <!--form-->
+                            <form class="costumer-form" name="costumer-form" onsubmit="return validateForm()">
+                                <div class="input">
+                                    <label for="">Your Name</label>
+                                    <input type="text" placeholder="Full Name" name="name">
+                                </div>
+                                <div class="input">
+                                    <label for="">Email</label>
+                                    <input type="text" placeholder="Address Email" name="email">
+                                </div>
+                                <div class="input">
+                                    <label for="destination">Destination</label>
+                                    <select name="destination" id="">
+                                        <option id="Select Your Destination" value="Select Your Destination">Select Your Destination</option>
+                                        <option id="bali" value="bali">Bali</option>
+                                        <option id="labuanbajo" value="labuanbajo">Labuan Bajo</option>
+                                        <option id="bromo" value="bromo">Bromo</option>
+                                        <option id="nusakambangan" value="nusakambangan">Nusakambangan</option>
+                                    </select>
+                                </div>
+                                <input type="submit" value="Send">
+                            </form>
+                            <!--Validation Form-->
+                            <script>
+                                function validateForm() {
+                                    /*Mengambil Nilai*/
+                                    var name = document.forms ["costumer-form"] ["name"].value;
+                                    var email = document.forms ["costumer-form"] ["email"].value;
+                                    var destination = document.forms ["costumer-form"] ["destination"].value;
+                                    console.log({ name, email, destination });
+                                    /*Validasi Form*/
+                                    if ( name =="" || email =="" || destination =="" || destination =="Select Your Destination") {
+                                        alert ("Input tidak boleh kosong");
+                                        return false;
+                                    }
+                                } 
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Our Package-->
+        <section id="hero-package">
+            <div class="package-title">
+                <h1>Our Package</h1>
+            </div>
+        </section>
+        <!-- Ini bagian Package Card -->
+        <section id="package">
+            <div class="container">
+                <!-- Ini Package List -->
+                <div class="package-list" id="package-list">
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="assets/destination.png" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Bali</h5>
+                                <p>
+                                    Tempat dengan sebutan Pulau Dewata <br>
+                                    yang memiliki ribuan tempat yang <br>
+                                    indah. Hanya mendengar namanya saja <br>
+                                    sudah terpikirkanbahwa Bali adalah <br>
+                                    tempat istimewa.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="assets/destination.png" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Bromo</h5>
+                                <p>
+                                    Gunung dengan pemandangan aestetik <br>
+                                    dan tempat tumbuhnya bunga Edelweis.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="assets/destination.png" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Labuan Bajo</h5>
+                                <p>
+                                    Gugusan pulau yang indan dan keindahan<br>
+                                    bawah lautnya yang tidak bisa dilewatkan.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="border"/>
+                <div class="package-list" id="package-list">
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="assets/destination.png" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Karimunjawa</h5>
+                                <p>
+                                    Pulau yang memiliki laut yang sebening <br>
+                                    kristal biru dan pasirnya yang berwarna <br>
+                                    putih sehingga menambah keindahan pantai.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="assets/destination.png" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Pulau Bawean</h5>
+                                <p>
+                                    Pulau dengan keindahan alam dan<br>
+                                    flora fauna yang khas.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-package">
+                        <li>
+                            <div class="list-icon"><img src="assets/destination.png" height="50" width="50"></div>
+                            <div class="list-paragraf">
+                                <h5>Lombok</h5>
+                                <p>
+                                    Tempat yang terkenal dengan ribuan <br>
+                                    pulaunyadan juga pemandangan yang <br>
+                                    dapat menyihir mata.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>   
+            </div>
+        </section>
+    </main>
+    <main  id="call-us" >
+        <section>
+            <div class="container">
+                <!-- Ini Package Closing -->
+                <div class="package-closing">
+                    <h2>Anda Tertarik Berlibur bersama TravelKu?</h2>
+                    <h5>
+                        Ayo liburan bersama TravelKu dan dapatkan pengalaman liburan<br>
+                        yang tidak akan terlupakan.
+                    </h5>
+                    <button class="call"><a href="https://instagram.com/deviliadcndr">CALL FOR BOOKING</a></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Footer-->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <img class="logo" src="assets/logo.png" alt="logo">
+                <div>
+                    <h4>Term of Services</h4>
+                    <h4>Privacy Policy</h4>
+                </div>
+                <p>&copy; 2023 TravelKu</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
